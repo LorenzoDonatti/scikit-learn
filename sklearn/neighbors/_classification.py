@@ -192,7 +192,7 @@ class KNeighborsClassifier(KNeighborsMixin, ClassifierMixin, NeighborsBase):
         )
         self.weights = weights
 
-    def fit(self, X, y):
+    def fit(self, X, y, sample_weight=None):
         """Fit the k-nearest neighbors classifier from the training dataset.
 
         Parameters
@@ -212,7 +212,7 @@ class KNeighborsClassifier(KNeighborsMixin, ClassifierMixin, NeighborsBase):
         """
         self._validate_params()
 
-        return self._fit(X, y)
+        return self._fit(X, y, weights)
 
     def predict(self, X):
         """Predict the class labels for the provided data.
